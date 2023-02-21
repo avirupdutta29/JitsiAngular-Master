@@ -1,0 +1,124 @@
+<html>
+    <head>
+        <style>
+            .container {
+                position: relative;
+                width: 639px;
+                height:520px;
+                border:1px red  solid;
+            }
+            .toolbox {
+                position: absolute;
+                bottom: 0px;
+                border:1px red  solid;
+                width: 100%;
+                height:50px;
+                margin-left: -13px;
+                
+            }
+            #jitsi-iframe{
+                height: 500px;
+                width: 600px;
+                margin-right: 700px;                
+            }
+
+            .popup{
+                display: none;
+            }
+
+            .button{
+                background-color: gray;
+                padding: 7px 10px;
+                padding-bottom: 3px;
+                margin-bottom: 4px;
+                font-weight: bolder;
+                border-radius: 5px;
+            }
+
+            .button:hover{
+                background: #34495e;
+                color: gray;
+            }
+
+            
+            .password-box{
+                margin-top: 40px;
+                bottom: 10px;
+                margin-bottom: 20px;
+                border:1px black solid;
+                width:50%;
+            }
+            .form-control{
+                margin-left: 20px;
+                margin-bottom: 20px;
+                margin-top: 10px;
+                width: 70%;
+            }
+            .heading{
+                margin-left: 20px;
+                margin-top: 20px;
+            }
+
+        </style>
+        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="https://jitsi.exzaconcert.com/external_api.js"></script>
+        <script src="jitsi.component.ts"></script>
+        
+        <script>
+            $(function(){
+                
+               
+                // $('#btnStart').on('click',function(){
+                //     $.print("#printable");
+                //     var meetingId = $('#txtMeetingId').val();
+                //     var dispNme = $('#txtDispNme').val();
+                    // StartMeeting(meetingId,dispNme);
+                    // StartMeeting(meetingId,dispNme);
+                });
+            // });
+
+
+          
+
+
+            
+        </script>
+    </head>
+<body>
+<div class="popup">
+    <div class="password-box" >
+        <form >
+            <label class="heading" for="">Enter the password to be shared with participants</label>
+            <input type="password" class="form-control" name="password" placeholder="Password"/>
+            <!-- <fa-icon class="close fa-solid  fa-2x faCircleXmark grey-color"  aria-hidden="true"  [icon]="faCircleXmark" ></fa-icon> -->
+       
+        </form>   
+    </div>
+</div>
+
+<script>
+    document.getElementById("button").addEventListener("click", function(){
+        document.querySelector(".popup").style.display="flex";
+        })
+</script>
+
+<div id="jitsi-iframe"></div>
+
+<div class="item-center">
+    <span>Custom Controls</span>
+</div>
+<div class="item-center">
+    <!-- <span>&nbsp;&nbsp;</span> -->
+    <i (click)="executeCommand('toggleAudio')" class="fas fa-2x grey-color" [ngClass]="isAudioMuted ? 'fa-microphone-slash' : 'fa-microphone'" aria-hidden="true" title="Mute / Unmute"></i>
+    <i (click)="executeCommand('hangup')" class="fas fa-phone-slash fa-2x red-color" aria-hidden="true" title="Leave"></i>
+    <i (click)="executeCommand('toggleVideo')" class="fas fa-2x grey-color" [ngClass]="isVideoMuted ? 'fa-video-slash' : 'fa-video'" aria-hidden="true" title="Start / Stop camera"></i>
+    <i (click)="executeCommand('toggleShareScreen')" class="fas fa-film fa-2x grey-color" aria-hidden="true" title="Share your screen"></i>
+    <i class="fas fa-2x fa-record-vinyl grey-color" aria-hidden="true"></i>
+    <fa-icon (click)="executeCommand('startRecording')" class="fas fa-regular fa-2x fa-record-vinyl grey-color" [icon]="faRecordVinyl" aria-hidden="true" ></fa-icon>
+    <fa-icon (click)="executeCommand('resizeLargeVideo')" class="fas fa-regular fa-2x fa-icon-fullscreen grey-color" [icon]="faExpand" aria-hidden="true"></fa-icon>
+    <fa-icon (click)="executeCommand('toggleParticipantsPane')" class="fas fa-regular fa-2x fa-user-group grey-color" [icon]="faUserGroup" aria-hidden="true"></fa-icon>
+
+</div>
+</body>
+</html>
